@@ -6,7 +6,7 @@ manipularlos en memoria (ver, crear, modificar, marcar para borrar) y
 volcar cambios finales al sistema (`/etc/passwd`) cuando el operador lo
 decida.
 
-Este proyecto está formado por tres scripts en Bash y un archivos de
+Este proyecto está formado por cuatro scripts en Bash y un archivos de
 texto.\
 Su objetivo es la **administración de usuarios en Ubuntu
 Server**, separando el proceso en dos partes:
@@ -17,8 +17,9 @@ Server**, separando el proceso en dos partes:
 
 ## Estructura del repositorio
 
-    ├── funciones.sh      
-    ├── fusus.sh          
+    ├── fauxiliares.sh      
+    ├── fusus.sh        
+    ├── interactive_menu
     ├── scarraybid1.sh    
     ├── usuarios.txt       
     └── README.md
@@ -27,9 +28,9 @@ Server**, separando el proceso en dos partes:
 
 ## 📁 Archivos incluidos
 
-### ✅ **funciones.sh**
+### ✅ **fauxiliares.sh**
 
-Script de funciones auxiliares (en este caso solo se utiliza para los colores y la despedida). 
+Script de funciones auxiliares (en este caso solo se utiliza para los colores). 
 
 
 ------------------------------------------------------------------------
@@ -37,7 +38,7 @@ Script de funciones auxiliares (en este caso solo se utiliza para los colores y 
 ### ✅ **scarrayabid1.sh**
 
 Script principal encargado de mostrar el menu principal y llamar a las funciones de `fusus.sh`. 
--  Navegación del menú.
+- Navegación del menú.
 - Llama a las funcionesde `fusus.sh`
 - Limpia `usuarios.txt` cuando termina.
 
@@ -62,20 +63,37 @@ Sirve para revisarlos antes de que el script principal los procese.
 
 ------------------------------------------------------------------------
 
+### ✅ **interactive_menu.sh**
+
+Se utiliza el script `interactive-menu`, un script en Bash para crear menús interactivos en terminal. 
+Desarrollado en:
+
+[Repositorio Menú Interactivo](https://github.com/OpenMous/interactive-menu)
+
+------------------------------------------------------------------------
+
 ## 🚀 Cómo usar el proyecto
 
 ### 1.  Dar permisos:
 
-        chmod +x scarraybid1.sh fusus.sh funciones.sh
+        chmod +x scarraybid1.sh fusus.sh fauxiliares.sh
 
-### 2.  Ejecutar:
+### 2.  Añadir usuarios a `usuarios.txt` (opcional):
 
-        ./scarraybid1.sh
+        nombre_usuario:UID:grupo:carpeta:shell
 
-### 3.  Navegación del menú:
+                        o
 
-    -   `w` = subir
-    -   `s` = bajar
+        nombre_usuario::grupo:carpeta:shell
+
+### 3.  Ejecutar:
+
+       sudo ./scarraybid1.sh
+
+### 4.  Navegación del menú:
+
+    -   `w` / ↑ = subir
+    -   `s` / ↓ = bajar
     -   `Enter` = seleccionar
 
 
@@ -88,11 +106,6 @@ Sirve para revisarlos antes de que el script principal los procese.
 -   `bash` 4.0+ (soporte a arrays asociativos)
 
 -   Permisos para crear/eliminar usuarios en el sistema
-
--   Paquetes adicionales necesarios:
-
-        sudo apt install cowsay
-        sudo apt install lolcat
 
 ------------------------------------------------------------------------
 
