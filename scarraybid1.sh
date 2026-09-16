@@ -4,14 +4,15 @@ clear
 
 #Llama al fichero del menu interactivo
 source ./interactive_menu.sh
+source ./fusus.sh
 ##
 while true;do
 	#Se declara el array con las opciones para el menu principal
-	interactive_menu "1. Ver_Usuarios" "2. Crear_Usuario" "3. Modificar_Usuario" "4. Borrar_Usuarios" "5. Volcar_y_Salir" "6. Salir" --break
+	interactive_menu "1. Ver_Usuarios" "2. Crear_Usuario" "3. Modificar_Usuario" "4. Borrar_Usuarios" "5. Volcar_y_Salir" "6. Salir" -b
 
 
 	#Dependiendo de que opcion se haya elegido...
-	case $sit in
+	case $menu_option in
 		1)
 			#Ver usuarios
 			fvusus
@@ -31,6 +32,9 @@ while true;do
 		5)
 			#Hace el 2,3 y 4 ahora si en passwd y termina el script
 			fvolcar
+			break
+		;;
+		6)
 			break
 		;;
 	esac
