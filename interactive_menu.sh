@@ -17,7 +17,7 @@ cursor-fix() { # Function to avoid not showing your cursor when you stop the pro
 ##
 
 function print_menu ( # Prints every iteration of the menu with te selected option highlighted
-	color_increment=1
+	local color_increment=1
 	for i in "${!options[@]}"; do
 		option="${options[$i]}"
 		((color_increment++))
