@@ -11,7 +11,8 @@ while true;do
 	#Se declara el array con las opciones para el menu principal
 	interactive_menu "1. Ver_Usuarios" "2. Crear_Usuario" "3. Modificar_Usuario" "4. Borrar_Usuarios" "5. Volcar_y_Salir" "6. Salir" -b
 
-
+	flusus
+	
 	#Dependiendo de que opcion se haya elegido...
 	case $menu_option in
 		1)
