@@ -22,18 +22,22 @@ while true;do
 		1)
 			#Ver usuarios
 			fvusus
+			echo ""
 		;;
 		2)
 			#Crear usuarios (en el array)
 			fcusus
+			echo ""
 		;;
 		3)
 			#Modificar usuarios (en el array)
 			fmod
+			echo ""
 		;;
 		4)
 			#Marca los usuarios deseados para borrarlos posteriormente
 			fdel
+			echo ""
 		;;
 		5)
 			#Hace el 2,3 y 4 ahora si en passwd y termina el script

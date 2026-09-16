@@ -99,7 +99,8 @@ function fcusus() {
 	while true;do
 		read -p "Introduce el carpeta: " usus[$i,carpeta]
 		if [ -z "${usus[$i,carpeta]}" ];then
-			echo -e "\e[31mERROR, NO HAS INTRODUCIDO CARPETA\e[0m"
+			usus[$i,carpeta]="/home/${usus[$i,usuario]}"
+			break
 		elif [[ "${usus[$i,carpeta]}" != /home/* ]];then
 			echo -e "\e[31mERROR, NO HAS INTRODUCIDO CARPETA EN UN FORMATO CORRECTO\e[0m"
 			echo -e "\e[33mRECUERDA QUE EL FORMATO ES -> /home/nombre_carpeta\e[0m"
@@ -112,7 +113,7 @@ function fcusus() {
 		read -p "Introduce la shell inicio: " usus[$i,shell_ini]
 		for r in $(cat /etc/shells);do
 			if [ -z "${usus[$i,shell_ini]}" ];then
-				echo -e "\e[31mERROR, NO HAS INTRODUCIDO SHELL\e[0m"
+				usus[$i,shell_ini]="/bin/bash"
 				break
 			elif [ "${usus[$i,shell_ini]}" = $r ];then
 				corr=1
@@ -129,6 +130,9 @@ function fcusus() {
 				echo -e "\e[31mERROR, HAS INTRODUCIDO LA SHELL CON UN FORMATO INCORRECTO\e[0m"
 				echo -e "\e[33mRECUERDA QUE ESTAS SON LAS DISPONIBLES:\e[0m"
 				tail -n +2 /etc/shells
+			;;
+			*)
+				break
 			;;
 		esac
 	done
