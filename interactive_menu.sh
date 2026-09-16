@@ -32,8 +32,10 @@ function print_menu ( # Prints every iteration of the menu with te selected opti
 )
 ##
 interactive_menu() {
-	local i
-	menu_position=1
+    local i menu_position=1
+    local options=()
+    local arguments arg key arrow quit_option
+	
 	##
 	declare -a options=()
 	for arg in "$@"; do # Build the array of options and search for the break switch
