@@ -3,6 +3,7 @@
 clear
 
 #Llama al fichero del menu interactivo
+source ./fauxiliares.sh
 source ./interactive_menu.sh
 source ./fusus.sh
 ##

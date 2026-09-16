@@ -15,21 +15,18 @@ cursor-fix() { # Function to avoid not showing your cursor when you stop the pro
 	exit 0
 }
 ##
-function prompt_template ( # Sets the structure for highlighting the options.
-	echo -e "\e[${1}m${@:2}\e[0m"
-)
-##
+
 function print_menu ( # Prints every iteration of the menu with te selected option highlighted
 	color_increment=1
 	for i in "${!options[@]}"; do
 		option="${options[$i]}"
 		((color_increment++))
 		if  [ $i = $(($menu_position-1)) ]; then
-			prompt_template $1 = = = = = = = =
-			prompt_template ${!color_increment} $option
-			prompt_template $1 = = = = = = = =
+			fcolores $1 = = = = = = = =
+			fcolores ${!color_increment} $option
+			fcolores $1 = = = = = = = =
 		else
-			prompt_template ${!color_increment} $option
+			fcolores ${!color_increment} $option
 		fi
 	done
 )
