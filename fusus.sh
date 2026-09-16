@@ -97,7 +97,7 @@ function fcusus() {
 		fi
 	done
 	while true;do
-		read -p "Introduce el carpeta: " usus[$i,carpeta]
+		read -p "Introduce la carpeta: " usus[$i,carpeta]
 		if [ -z "${usus[$i,carpeta]}" ];then
 			usus[$i,carpeta]="/home/${usus[$i,usuario]}"
 			break
