@@ -7,14 +7,15 @@ source ./fauxiliares.sh
 source ./interactive_menu.sh
 source ./fusus.sh
 ##
+
+#Declaramos el array asociativo para el bidimensional
+declare -A usus
+
+flusus
+
 while true;do
 	#Se declara el array con las opciones para el menu principal
 	interactive_menu "1. Ver_Usuarios" "2. Crear_Usuario" "3. Modificar_Usuario" "4. Borrar_Usuarios" "5. Volcar_y_Salir" "6. Salir" -b
-
-	#Declaramos el array asociativo para el bidimensional
-	declare -A usus
-
-	flusus
 	
 	#Dependiendo de que opcion se haya elegido...
 	case $menu_option in

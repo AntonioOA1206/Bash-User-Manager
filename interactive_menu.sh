@@ -32,6 +32,7 @@ function print_menu ( # Prints every iteration of the menu with te selected opti
 )
 ##
 interactive_menu() {
+	local i
 	menu_position=1
 	##
 	declare -a options=()
